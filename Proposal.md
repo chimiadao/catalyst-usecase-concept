@@ -17,7 +17,7 @@ Cardano lacks a flagship **DeSci** primitive; this establishes it.
 - **Library prototype:** serialize as many reactions as possible via a type-safe ADT (bare minimum target: ≥50 reactions across ≥3 common classes; ≥1 full retrosynthesis pathway).
 - **Validator prototype:** minimal Plutus validator for a reaction step (inputs/outputs/stoichiometry present; CIP-68 state layout).
 - **Demo UI:** submit/view a step; see validator outcome.
-- **Docs + pilot:** examples + ≥5 external testers with actual physical Chemistry/Physics labs.
+- **Docs + pilot:** examples + ≥5 external testers with physical Chemistry/Physics labs.
 
 ## Budget (₳100,000)
 - Founder stipend (6 mo, lean): ₳20k
