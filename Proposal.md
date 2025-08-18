@@ -14,14 +14,14 @@ Haskell + formal methods match chemistry’s need for rigor, which is something 
 Cardano lacks a flagship **DeSci** primitive; this establishes it.
 
 ## Scope (Concept, 6 months)
-- **Library prototype:** serialize as many reactions possible via a type-safe ADT.
-- **Validator prototype:** minimal Plutus validator for a reaction step (inputs/outputs/stoichiometry present).
+- **Library prototype:** serialize as many reactions as possible via a type-safe ADT (bare minimum target: ≥50 reactions across ≥3 common classes; ≥1 full retrosynthesis pathway).
+- **Validator prototype:** minimal Plutus validator for a reaction step (inputs/outputs/stoichiometry present; CIP-68 state layout).
 - **Demo UI:** submit/view a step; see validator outcome.
-- **Docs + pilot:** examples + ≥5 external testers with actual physical Chemistry/Physics laboratories.
+- **Docs + pilot:** examples + ≥5 external testers with actual physical Chemistry/Physics labs.
 
 ## Budget (₳100,000)
 - Founder stipend (6 mo, lean): ₳20k
-- Core dev (Haskell/Plutus): ₳65k
+- Core dev (Haskell/Plutus, incl. UI build): ₳65k
 - Infra & tools (testnets/hosting/tooling): ₳10k
 - Docs/outreach/contingency: ₳5k
 
