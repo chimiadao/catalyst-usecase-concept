@@ -1,0 +1,19 @@
+# Stack configuration for chimia-core
+# Based on Oliver Goldstein's molecular representation work
+
+resolver: lts-21.25  # GHC 9.4.8
+
+packages:
+  - .
+
+extra-deps: []
+
+# Build flags
+flags: {}
+
+# Extra package databases
+extra-package-dbs: []
+
+# GHC options for all packages
+ghc-options:
+  "$everything": -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints

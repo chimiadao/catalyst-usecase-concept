@@ -1,0 +1,80 @@
+cabal-version: 2.2
+name:           chimia-core
+version:        0.1.0.0
+synopsis:       Type-safe molecular representation for ChimiaDAO
+description:    Haskell ADT system for formally verifiable chemistry, inspired by Oliver Goldstein's work
+homepage:       https://github.com/chimiadao/chimia-core
+bug-reports:    https://github.com/chimiadao/chimia-core/issues
+author:         ChimiaDAO
+maintainer:     contact@chimiadao.org
+copyright:      2024 ChimiaDAO
+license:        Apache-2.0
+license-file:   ../../LICENSE
+build-type:     Simple
+category:       Chemistry, Science
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/chimiadao/chimia-core
+
+library
+  exposed-modules:
+      Chimia.Core.Atom
+      Chimia.Core.Bond
+      Chimia.Core.Orbitals
+      Chimia.Core.MO
+      Chimia.Core.ElementConfig
+      Chimia.Core.Molecule
+      Chimia.Core.Reaction
+      Chimia.Core.Stoichiometry
+      Chimia.Core.Validation
+      Chimia.Core.Serialization
+  other-modules:
+      Paths_chimia_core
+  hs-source-dirs:
+      src
+  ghc-options: 
+      -Wall 
+      -Wcompat 
+      -Widentities 
+      -Wincomplete-record-updates 
+      -Wincomplete-uni-patterns 
+      -Wmissing-home-modules 
+      -Wpartial-fields 
+      -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , aeson
+    , text
+    , bytestring
+    , scientific
+    , vector
+  default-language: Haskell2010
+
+test-suite chimia-core-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Chimia.Core.AtomSpec
+      Chimia.Core.MoleculeSpec
+      Chimia.Core.ReactionSpec
+      Chimia.Core.StoichiometrySpec
+      Paths_chimia_core
+  hs-source-dirs:
+      test
+  ghc-options: 
+      -Wall 
+      -threaded 
+      -rtsopts 
+      -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , chimia-core
+    , hspec
+    , QuickCheck
+    , containers
+  default-language: Haskell2010

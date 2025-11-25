@@ -1,0 +1,47 @@
+graph TB
+    subgraph Cardano[" CARDANO - Governance & Formal Verification"]
+        PV[Plutus Validators<br/>Type-safe synthesis verification]
+        RR[Reputation Registry<br/>Truth anchor]
+        ADA[₳DA Token Economics<br/>Native token rewards]
+        GOV[On-chain Governance<br/>Protocol parameters]
+    end
+
+    subgraph Monad[" MONAD - High-Speed Execution"]
+        POXR[PoXRegistry.sol<br/>Experiment submission]
+        CM[ChallengeManager.sol<br/>Multi-sig resolution]
+        REP[Reputation.sol<br/>Dynamic scoring]
+        BATCH[Batch Operations<br/>Lab data ingestion]
+    end
+
+    subgraph Solana[" SOLANA - Data Availability"]
+        RPROG[reputation_program<br/>Real-time updates]
+        ESCROW[payment_escrow<br/>Instant rewards]
+        BRIDGE[bridge_sync<br/>State synchronization]
+    end
+
+    subgraph Filecoin[" FILECOIN - Permanent Storage"]
+        IPFS[IPFS CIDs<br/>Content addressing]
+        FVM[FVM Contracts<br/>CID registry]
+        ORD[ORD Integration<br/>4M+ reactions]
+    end
+
+    %% Cross-chain bridges
+    Cardano <-->|Wormhole<br/>State roots| Monad
+    Cardano <-->|Wormhole<br/>Reputation sync| Solana
+    Monad <-->|Bridge relay<br/>Reputation updates| Solana
+    Monad -.->|CID references| Filecoin
+    Solana -.->|Payment receipts| Filecoin
+
+    %% Data flow
+    USER((Chemist)) -->|Submit experiment| POXR
+    POXR -->|Store data| IPFS
+    IPFS -->|Emit CID| FVM
+    POXR -->|15-day challenge| CM
+    CM -->|Update reputation| REP
+    REP -->|Cross-chain sync| RPROG
+    RPROG -->|Monthly batch| ADA
+
+    style Cardano fill:#0033AD,color:#fff
+    style Monad fill:#7B3FF2,color:#fff
+    style Solana fill:#14F195,color:#000
+    style Filecoin fill:#0090FF,color:#fff

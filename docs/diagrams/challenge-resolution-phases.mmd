@@ -1,0 +1,39 @@
+graph LR
+    subgraph Phase1[" PHASE 1: Multi-Sig (Current)"]
+        MS[3 Trusted Resolvers]
+        QUORUM[2-of-3 Quorum]
+        TIMEOUT[15-day timeout]
+        MS --> QUORUM
+        QUORUM --> TIMEOUT
+    end
+
+    subgraph Phase2[" PHASE 2: Bisection Game (6-12 months)"]
+        BIS[Interactive Dispute]
+        MACI[MACI-style Protocol]
+        ONCHAIN[On-chain Resolution]
+        BIS --> MACI
+        MACI --> ONCHAIN
+    end
+
+    subgraph Phase3[" PHASE 3: ZK Proofs (Long-term)"]
+        ZK[ZK-SNARK Generation]
+        VERIFY[On-chain Verifier]
+        TRUSTLESS[Fully Trustless]
+        ZK --> VERIFY
+        VERIFY --> TRUSTLESS
+    end
+
+    Phase1 -->|Decentralization<br/>Roadmap| Phase2
+    Phase2 -->|Progressive<br/>Trustlessness| Phase3
+
+    style Phase1 fill:#FFE5B4,color:#000
+    style Phase2 fill:#B4D7FF,color:#000
+    style Phase3 fill:#B4FFB4,color:#000
+
+    note1[Trust Level: Medium<br/>Speed: Fast<br/>Cost: Low]
+    note2[Trust Level: Low<br/>Speed: Medium<br/>Cost: Medium]
+    note3[Trust Level: None<br/>Speed: Fast<br/>Cost: High Setup]
+
+    Phase1 -.- note1
+    Phase2 -.- note2
+    Phase3 -.- note3

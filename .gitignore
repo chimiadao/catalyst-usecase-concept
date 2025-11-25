@@ -1,0 +1,70 @@
+# Node.js / pnpm
+node_modules/
+.pnpm-store/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.turbo/
+
+# Haskell / Stack
+.stack-work/
+*.cabal.swp
+*.hi
+*.o
+*.chi
+*.chs.h
+.virtualenv
+.hpc
+.hsenv
+cabal.sandbox.config
+cabal.project.local
+dist/
+dist-newstyle/
+
+# Environment
+.env
+.env.local
+.env.*.local
+*.env
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.vercel/
+target/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Solidity / Foundry
+cache/
+out/
+broadcast/
+lib/
+
+# Miscellaneous
+.cache/
+*.pid
+*.seed
+*.pid.lock

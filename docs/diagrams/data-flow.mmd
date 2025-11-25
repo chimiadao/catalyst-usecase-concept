@@ -1,0 +1,43 @@
+sequenceDiagram
+    participant C as Chemist
+    participant M as Monad<br/>(PoXRegistry)
+    participant F as Filecoin<br/>(IPFS/FVM)
+    participant CM as Monad<br/>(ChallengeManager)
+    participant S as Solana<br/>(reputation_program)
+    participant CA as Cardano<br/>(ADA rewards)
+
+    Note over C,CA: Experiment Submission Flow
+
+    C->>M: 1. Submit experiment<br/>(stake 0.01 ETH)
+    M->>M: Validate input<br/>(difficulty 1-100, CID format)
+    M->>F: 2. Upload raw data to IPFS
+    F-->>M: Return CID<br/>(bafybeig...)
+    M->>M: 3. Emit ExperimentSubmitted event<br/>(experimentId, CID, submitter)
+    
+    Note over CM: 15-Day Challenge Period
+
+    alt Challenge Submitted
+        C->>CM: 4a. Submit challenge<br/>(stake 0.01 ETH)
+        CM->>CM: Multi-sig resolution<br/>(2-of-3 quorum)
+        
+        alt Challenge Valid
+            CM->>C: Return 2x stake (0.02 ETH)
+            CM->>M: Penalize submitter<br/>(-10 reputation)
+        else Challenge Invalid
+            CM->>C: Forfeit stake
+            CM->>M: Refund submitter<br/>(0.01 ETH)
+            CM->>C: Penalize challenger<br/>(-5 reputation)
+        end
+    else No Challenge (Auto-Resolve)
+        CM->>M: 4b. Auto-validate after 15 days
+        M->>C: Refund stake (0.01 ETH)
+    end
+
+    M->>S: 5. Update reputation<br/>(cross-chain via Wormhole)
+    S->>S: Adjust score<br/>(every ~20 experiments)
+    
+    Note over S,CA: Monthly Reward Batch
+    
+    S->>CA: 6. Sync reputation state<br/>(Merkle proof)
+    CA->>CA: Mint ₳DA rewards<br/>(reputation-weighted)
+    CA-->>C: 7. Deliver ₳DA tokens<br/>(native Cardano wallet)
