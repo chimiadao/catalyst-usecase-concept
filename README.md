@@ -20,7 +20,7 @@ Chemistry powers a **$5 trillion industry**, yet:
 
 ### Multi-Chain Strategy
 
-ChimiaDAO operates across **four blockchain ecosystems**, each serving a specific role:
+ChimiaDAO operates across **three blockchain ecosystems**, each serving a specific role:
 
 #### 🔷 **Cardano (Primary Layer)**
 - **Role**: Governance, reputation registry, and formal verification anchor
@@ -32,22 +32,15 @@ ChimiaDAO operates across **four blockchain ecosystems**, each serving a specifi
   - On-chain governance for protocol parameters
 
 #### ⚡ **Monad (High-Performance Layer)**
-- **Role**: Real-time experiment submission and challenge resolution
-- **Why**: 10,000+ TPS for instant feedback; parallel execution for complex validation
+- **Role**: Experiment submission, challenge resolution, reputation system, and payments
+- **Why**: 10,000+ TPS for instant feedback; parallel execution for complex validation; EVM compatibility simplifies architecture
 - **Components**:
   - Rapid experiment registration (sub-second finality)
   - Multi-signature challenge resolution system
-  - Gas-optimized batch operations for lab data ingestion
-  - EVM compatibility for cross-chain bridges
-
-#### 🌐 **Solana (Data Availability Layer)**
-- **Role**: High-frequency updates and micro-transactions
-- **Why**: Ultra-low fees for incremental reputation updates; fast state propagation
-- **Components**:
   - Real-time reputation scoring (every ~20 experiments)
-  - Lightweight data anchors (CID references only)
-  - Cross-program invocations for atomic updates
-  - Integration with Solana Pay for instant rewards
+  - Gas-optimized batch operations for lab data ingestion
+  - Payment escrow and reward distribution
+  - EVM compatibility for cross-chain bridges
 
 #### 📦 **Filecoin (Storage Layer)**
 - **Role**: Permanent, verifiable data storage
@@ -61,26 +54,22 @@ ChimiaDAO operates across **four blockchain ecosystems**, each serving a specifi
 ### Cross-Chain Communication
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│                      CARDANO (GOVERNANCE)                    │
-│  - Plutus validators (formal synthesis verification)        │
-│  - Reputation registry (truth anchor)                        │
-│  - Token economics (₳DA rewards)                             │
-└────────────┬─────────────────────────────────┬───────────────┘
-             │                                 │
-    ┌────────▼────────┐               ┌───────▼────────┐
-    │  MONAD (SPEED)  │◄──────────────►│ SOLANA (STATE) │
-    │  - Challenges   │   Bridge sync  │  - Reputation  │
-    │  - Submissions  │                │  - Payments    │
-    └────────┬────────┘                └───────┬────────┘
-             │                                 │
-             └─────────────┬───────────────────┘
-                           ▼
-                  ┌────────────────┐
-                  │ FILECOIN (DATA)│
-                  │  - IPFS CIDs   │
-                  │  - ORD schemas │
-                  └────────────────┘
+┌──────────────────────────────────────────────────────────┐
+│              CARDANO (Governance Layer)              │
+│  • Plutus validators (formal synthesis verification)  │
+│  • Reputation registry (canonical truth)             │
+│  • Token economics (₳DA rewards)                     │
+│  • CIP-68 NFTs (experiment metadata)                 │
+└────────────┬───────────────────────────┬─────────────┘
+             │                           │
+    ┌────────┴────────┐           ┌───────┴────────┐
+    │  MONAD (Speed)  │           │ FILECOIN (Data)│
+    │  • Experiments  │◄─────────►│  • IPFS CIDs   │
+    │  • Challenges   │  CID sync │  • ORD schemas │
+    │  • Reputation   │           │  • Long-term   │
+    │  • Payments     │           │    storage     │
+    └─────────────────┘           └─────────────────┘
+         (10k+ TPS)                 (Content-addressed)
 ```
 
 ## Technical Foundation
@@ -152,11 +141,7 @@ validateSynthesisStep step ctx =
 - **PoXRegistry.sol**: Experiment registration with gas-optimized storage
 - **ChallengeManager.sol**: Multi-sig resolution with 15-day timeout
 - **Reputation.sol**: Dynamic scoring with timelock authorization
-
-#### Solana (State Management)
-- **reputation_program**: On-chain score updates (Anchor framework)
-- **payment_escrow**: Instant reward distribution via Solana Pay
-- **bridge_sync**: Cross-chain state synchronization
+- **PaymentEscrow.sol**: Reward distribution and stake management
 
 #### Filecoin (Data Layer)
 - **CID Registry Contract**: Map experiment IDs to IPFS CIDs
@@ -207,14 +192,13 @@ validateSynthesisStep step ctx =
 - Subgraph prototype for ORD data ingestion
 - Initial Solidity contracts (PoXRegistry, Reputation)
 
-### 🔄 **Phase 1: Catalyst Fund 15 (6 months, ₳200,000)**
+### 🔄 **Phase 1: Catalyst Fund 15 (6 months, ₳190,000)**
 
 **Month 1-2: Multi-Chain Architecture**
 - Deploy Cardano testnet validators (Plutus)
-- Deploy Monad testnet contracts (high-speed)
-- Deploy Solana devnet programs (reputation/payments)
+- Deploy Monad testnet contracts (experiments, challenges, reputation, payments)
 - Deploy Filecoin Calibration contracts (CID registry)
-- Implement cross-chain bridges (Axelar/Wormhole)
+- Implement cross-chain bridges (Wormhole)
 
 **Month 3-4: Core Features**
 - Type-safe Haskell library (≥50 reactions, ≥3 classes)
@@ -225,7 +209,7 @@ validateSynthesisStep step ctx =
 
 **Month 5-6: Testing & Deployment**
 - Security audit (all chains)
-- Mainnet deployments (Cardano → Monad → Solana → Filecoin)
+- Mainnet deployments (Cardano → Monad → Filecoin)
 - Pilot program with ≥5 physical labs
 - Documentation & tutorials
 - Community governance activation
@@ -235,32 +219,31 @@ validateSynthesisStep step ctx =
 - DAO treasury management (multi-chain)
 - Academic partnerships (universities, research institutes)
 - Industry adoption (pharma, materials science)
-- Grant program for builders (₳DA/MONA/SOL/FIL rewards)
+- Grant program for builders (₳DA/MONA/FIL rewards)
 
-## Budget (₳200,000)
+## Budget (₳190,000)
 
-### Personnel (₳140,000 / 70%)
+### Personnel (₳110,000 / 58%)
 - **Lead Architect** (Cardano/Haskell specialist): ₳50,000
-- **Monad/EVM Engineer** (Solidity, gas optimization): ₳40,000
-- **Solana/Rust Developer** (Anchor, cross-chain): ₳30,000
-- **Filecoin Integration Specialist** (FVM, IPFS): ₳20,000
+- **Monad/EVM Engineer** (Solidity, gas optimization, reputation & payments): ₳40,000
+- **Filecoin Integration Specialist** (FVM, IPFS, ORD migration): ₳20,000
 
-### Infrastructure (₳30,000 / 15%)
-- Multi-chain testnet operations: ₳8,000
-- Bridge infrastructure (Axelar/Wormhole): ₳10,000
-- IPFS/Filecoin storage deals: ₳6,000
-- Monitoring & alerting (multi-chain): ₳6,000
+### Infrastructure (₳40,000 / 21%)
+- Multi-chain testnet operations (Cardano, Monad, Filecoin): ₳10,000
+- Bridge infrastructure (Wormhole): ₳15,000
+- IPFS/Filecoin storage deals (5-year commitment): ₳10,000
+- Monitoring & alerting: ₳5,000
 
-### Security & Audits (₳20,000 / 10%)
-- Smart contract audits (4 chains): ₳15,000
-- Penetration testing: ₳3,000
-- Bug bounty program: ₳2,000
+### Security & Audits (₳25,000 / 13%)
+- Smart contract audits (3 chains: Cardano, Monad, Filecoin): ₳18,000
+- Penetration testing: ₳4,000
+- Bug bounty program: ₳3,000
 
-### Operations (₳10,000 / 5%)
-- Documentation & technical writing: ₳4,000
-- Community outreach & partnerships: ₳3,000
-- Legal (multi-jurisdiction compliance): ₳2,000
-- Contingency reserve: ₳1,000
+### Operations (₳15,000 / 8%)
+- Documentation & technical writing: ₳6,000
+- Community outreach & partnerships: ₳4,000
+- Legal (multi-jurisdiction): ₳3,000
+- Contingency reserve: ₳2,000
 
 ## Why Cardano as Primary Chain?
 
