@@ -1,0 +1,215 @@
+[
+  {
+    "reaction_id": "ord-25d233033c364875866acf64d9b7d5ca",
+    "reactants": [
+      {
+        "smiles": "COC(=O)c1nccc(Sc2cnc(Nc3ccc(CNC(=O)OC(C)(C)C)cn3)s2)c1F",
+        "name": "COC(=O)c1nccc(Sc2cnc(Nc3ccc(CNC(=O)OC(C)(C)C)cn3)s2)c1F",
+        "role": "Reactant",
+        "coefficient": 1
+      },
+      {
+        "smiles": "Cl",
+        "name": "Cl",
+        "role": "Reactant",
+        "coefficient": 1
+      },
+      {
+        "smiles": "[Na+]",
+        "name": "[Na+]",
+        "role": "Reactant",
+        "coefficient": 1
+      },
+      {
+        "smiles": "C1CCOC1",
+        "name": "C1CCOC1",
+        "role": "Reactant",
+        "coefficient": 1
+      },
+      {
+        "smiles": "[OH-]",
+        "name": "[OH-]",
+        "role": "Reactant",
+        "coefficient": 1
+      },
+      {
+        "smiles": "O",
+        "name": "O",
+        "role": "Reactant",
+        "coefficient": 1
+      }
+    ],
+    "products": [
+      {
+        "smiles": "CC(C)(C)OC(=O)NCc1ccc(Nc2ncc(Sc3ccnc(C(=O)O)c3F)s2)nc1",
+        "name": null,
+        "role": "Product",
+        "coefficient": 1
+      }
+    ],
+    "conditions": {
+      "pressure_atm": null
+    },
+    "reaction_class": "Synthesis",
+    "provenance": {
+      "source": "Open Reaction Database (ORD)",
+      "dataset_id": "ord-25d233033c364875866acf64d9b7d5ca"
+    }
+  },
+  {
+    "reaction_id": "ord-200da0b0d9bc40169371a5af6c0bd422",
+    "reactants": [
+      {
+        "smiles": "CN(C)C1(c2ccccc2)CCC2(CCNCC2)CC1",
+        "name": "CN(C)C1(c2ccccc2)CCC2(CCNCC2)CC1",
+        "role": "Reactant",
+        "coefficient": 1
+      },
+      {
+        "smiles": "CN(C)C1(c2cccc(F)c2)CCC2(CC1)OCCO2",
+        "name": "CN(C)C1(c2cccc(F)c2)CCC2(CC1)OCCO2",
+        "role": "Reactant",
+        "coefficient": 1
+      }
+    ],
+    "products": [
+      {
+        "smiles": "CN(C)C1(c2cccc(F)c2)CCC(=O)CC1",
+        "name": null,
+        "role": "Product",
+        "coefficient": 1
+      }
+    ],
+    "conditions": {
+      "pressure_atm": null
+    },
+    "reaction_class": "Synthesis",
+    "provenance": {
+      "source": "Open Reaction Database (ORD)",
+      "dataset_id": "ord-200da0b0d9bc40169371a5af6c0bd422"
+    }
+  },
+  {
+    "reaction_id": "ord-35ae547851e34eef87dad24d9be731ff",
+    "reactants": [
+      {
+        "smiles": "CCCCc1nc2ccc(NC(=O)C(C)C)cc2n1Cc1ccc(-c2ccccc2C(=O)OC(C)(C)C)cc1",
+        "name": "CCCCc1nc2ccc(NC(=O)C(C)C)cc2n1Cc1ccc(-c2ccccc2C(=O)OC(C)(C)C)cc1",
+        "role": "Reactant",
+        "coefficient": 1
+      },
+      {
+        "smiles": "O=C(O)C(F)(F)F",
+        "name": "O=C(O)C(F)(F)F",
+        "role": "Reactant",
+        "coefficient": 1
+      }
+    ],
+    "products": [
+      {
+        "smiles": "CCCCc1nc2ccc(NC(=O)C(C)C)cc2n1Cc1ccc(-c2ccccc2C(=O)O)cc1",
+        "name": null,
+        "role": "Product",
+        "coefficient": 1
+      }
+    ],
+    "conditions": {
+      "pressure_atm": null
+    },
+    "reaction_class": "Synthesis",
+    "provenance": {
+      "source": "Open Reaction Database (ORD)",
+      "dataset_id": "ord-35ae547851e34eef87dad24d9be731ff"
+    }
+  },
+  {
+    "reaction_id": "ord-c7fa2c614470442dad7525e1d48258fd",
+    "reactants": [
+      {
+        "smiles": "CN(C)C=O",
+        "name": "CN(C)C=O",
+        "role": "Reactant",
+        "coefficient": 1
+      },
+      {
+        "smiles": "Cl",
+        "name": "Cl",
+        "role": "Reactant",
+        "coefficient": 1
+      },
+      {
+        "smiles": "[H-]",
+        "name": "[H-]",
+        "role": "Reactant",
+        "coefficient": 1
+      },
+      {
+        "smiles": "[Na+]",
+        "name": "[Na+]",
+        "role": "Reactant",
+        "coefficient": 1
+      },
+      {
+        "smiles": "O=c1ccc(C(c2ccccc2)c2ccccc2)n[nH]1",
+        "name": "O=c1ccc(C(c2ccccc2)c2ccccc2)n[nH]1",
+        "role": "Reactant",
+        "coefficient": 1
+      },
+      {
+        "smiles": "COc1cccc2c1CCC(COS(=O)(=O)c1ccc(C)cc1)C2",
+        "name": "COc1cccc2c1CCC(COS(=O)(=O)c1ccc(C)cc1)C2",
+        "role": "Reactant",
+        "coefficient": 1
+      }
+    ],
+    "products": [
+      {
+        "smiles": "COc1cccc2c1CCC(Cn1nc(C(c3ccccc3)c3ccccc3)ccc1=O)C2",
+        "name": null,
+        "role": "Product",
+        "coefficient": 1
+      }
+    ],
+    "conditions": {
+      "pressure_atm": null
+    },
+    "reaction_class": "Synthesis",
+    "provenance": {
+      "source": "Open Reaction Database (ORD)",
+      "dataset_id": "ord-c7fa2c614470442dad7525e1d48258fd"
+    }
+  },
+  {
+    "reaction_id": "ord-acd57c7e22d64080a112b1ee60af3a30",
+    "reactants": [
+      {
+        "smiles": "Cc1cn(CCN)c(C)n1",
+        "name": "Cc1cn(CCN)c(C)n1",
+        "role": "Reactant",
+        "coefficient": 1
+      },
+      {
+        "smiles": "O=CCCc1cccc(Cl)c1",
+        "name": "O=CCCc1cccc(Cl)c1",
+        "role": "Reactant",
+        "coefficient": 1
+      }
+    ],
+    "products": [
+      {
+        "smiles": "Cc1nc(C)n2c1C(CCc1cccc(Cl)c1)NCC2",
+        "name": null,
+        "role": "Product",
+        "coefficient": 1
+      }
+    ],
+    "conditions": {
+      "pressure_atm": null
+    },
+    "reaction_class": "Synthesis",
+    "provenance": {
+      "source": "Open Reaction Database (ORD)",
+      "dataset_id": "ord-acd57c7e22d64080a112b1ee60af3a30"
+    }
+  }
+]
